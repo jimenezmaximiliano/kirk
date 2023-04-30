@@ -5,6 +5,6 @@ import (
 )
 
 // NewLoggerFromSugaredZap returns an adapted zap SugaredLogger that implements Logger.
-func NewLoggerFromSugaredZap(zap zap.SugaredLogger) Logger {
-	return zapAdapter{zap: zap}
+func NewLoggerFromSugaredZap(zap zap.SugaredLogger) ZapLoggerAdapter {
+	return ZapLoggerAdapter{zap: zap}
 }

@@ -4,28 +4,33 @@ import (
 	"go.uber.org/zap"
 )
 
-type zapAdapter struct {
+type ZapLoggerAdapter struct {
 	zap zap.SugaredLogger
 }
 
-var _ Logger = zapAdapter{}
+var _ Logger = ZapLoggerAdapter{}
 
-func (zap zapAdapter) Error(err error) {
+// Error logs an error with ERROR severity.
+func (zap ZapLoggerAdapter) Error(err error) {
 	zap.zap.Error(err)
 }
 
-func (zap zapAdapter) Panic(err error) {
+// Panic logs an error with PANIC severity, and panics.
+func (zap ZapLoggerAdapter) Panic(err error) {
 	zap.zap.Panic(err)
 }
 
-func (zap zapAdapter) Debug(message string) {
+// Debug logs a message with DEBUG severity.
+func (zap ZapLoggerAdapter) Debug(message string) {
 	zap.zap.Debug(message)
 }
 
-func (zap zapAdapter) Info(message string) {
+// Info logs a message with INFO severity.
+func (zap ZapLoggerAdapter) Info(message string) {
 	zap.zap.Info(message)
 }
 
-func (zap zapAdapter) Warn(message string) {
+// Warn logs a message with WARN severity.
+func (zap ZapLoggerAdapter) Warn(message string) {
 	zap.zap.Warn(message)
 }
