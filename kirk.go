@@ -15,11 +15,11 @@ type LoggerFields map[string]string
 
 // Logger represents the common logging methods supported.
 type Logger interface {
-	Error(ctx context.Context, err error)
-	Panic(ctx context.Context, err error)
 	Debug(ctx context.Context, message string)
 	Info(ctx context.Context, message string)
 	Warn(ctx context.Context, message string)
+	Error(ctx context.Context, err error)
+	Panic(ctx context.Context, err error)
 }
 
 // Reporter represents the common error reporting methods supported.
